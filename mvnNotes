@@ -1,0 +1,2 @@
+mvn org.apache.maven.plugins:maven-archetype-plugin:3.1.2:generate -DarchetypeArtifactId="java" -DarchetypeGroupId="ca.dsolutions" -DarchetypeVersion="1.0"
+

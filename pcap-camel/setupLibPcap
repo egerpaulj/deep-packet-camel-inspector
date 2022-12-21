@@ -1,0 +1,23 @@
+sudo alternatives --config java
+
+-- Setup Pcap Permissions for Java
+sudo setcap cap_net_raw,cap_net_admin=eip /usr/lib/jvm/java-11-openjdk-11.0.8.10-2.fc32.x86_64/bin/java
+
+-- Ensure the ld.so trusts the Java executable
+
+-- Add java.conf to this directory
+cd /etc/ld.so.conf.d/
+bash-5.0# ls
+java.conf  tix-x86_64.conf
+
+-- Add the Jli folder path
+bash-5.0# cat java.conf
+/usr/lib/jvm/java-11-openjdk-11.0.8.10-2.fc32.x86_64/lib/jli
+
+-- reload cache (ldconfig) and verify
+
+bash-5.0# ldconfig -p|grep -i java
+	libjli.so (libc6,x86-64) => /usr/lib/jvm/java-11-openjdk-11.0.8.10-2.fc32.x86_64/lib/jli/libjli.so
+	libjavascriptcoregtk-4.0.so.18 (libc6,x86-64) => /lib64/libjavascriptcoregtk-4.0.so.18
+
+

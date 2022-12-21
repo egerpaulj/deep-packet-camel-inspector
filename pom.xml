@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>network-analyzer</groupId>
+	<artifactId>network-analyzer</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+    <modules>
+        <module>pkts-master</module>
+        <module>pcap-master</module>
+    <module>pcap-camel</module>
+  </modules>
+
+	<dependencyManagement>
+    	<dependencies>
+			<dependency>
+				<groupId>pcap-master</groupId>
+				<artifactId>pcap-master-parent</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.pkts</groupId>
+				<artifactId>pkts-parent</artifactId>
+				<version>3.0.8-SNAPSHOT</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
